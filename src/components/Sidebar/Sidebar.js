@@ -16,9 +16,11 @@ export const Sidebar = styled(({ className }) => {
   return (
     <aside className={className}>
       <Menus>
-        {menus.map(({ text, icon, link, menuId }) => (
-          <Menu icon={icon} text={text} link={link} key={menuId} />
-        ))}
+        {menus
+          .filter(({ show }) => Boolean(show))
+          .map(({ text, icon, link, menuId }) => (
+            <Menu icon={icon} text={text} link={link} key={menuId} />
+          ))}
       </Menus>
       <BadgeContainer>
         {!isLoadingLastUpdate && <UpdateNotification date={lastUpdate} />}

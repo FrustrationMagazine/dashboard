@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { FaExclamationCircle as IconExclamation } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import React from 'react'
+import styled from 'styled-components'
+import { FaExclamationCircle as IconExclamation } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 export const Header = styled(({ className }) => (
   <header className={className}>
@@ -18,7 +18,7 @@ export const Header = styled(({ className }) => (
   justify-content: center;
   align-items: baseline;
   gap: 10px;
-`;
+`
 
 const Title = styled(({ className, children }) => (
   <h1 className={className}>
@@ -29,13 +29,15 @@ const Title = styled(({ className, children }) => (
   font-family: Bebas Neue;
   text-transform: uppercase;
   position: relative;
-`;
+`
 
-const Version = styled(({ className, children }) => <small className={className}>v.{children}</small>)`
+const Version = styled(({ className, children }) => (
+  <small className={className}>v.{children}</small>
+))`
   font-size: clamp(12px, 0.7vw, 20px);
   font-weight: 200;
   text-transform: lowercase;
-`;
+`
 
 const Avertissement = styled(({ className, children }) => (
   <div className={className}>
@@ -54,4 +56,4 @@ const Avertissement = styled(({ className, children }) => (
   align-items: center;
   gap: 10px;
   font-size: clamp(10px, 1vw, 20px);
-`;
+`

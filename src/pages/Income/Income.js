@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Tabs } from './components/Tabs'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Outlet } from 'react-router-dom'
 import { useIncome } from '@hooks'
-import { Outlet } from 'react-router-dom'
 
 const Income = styled(({ className }) => {
   const type = useLocation().pathname.match(/[^/]+$/g)[0]

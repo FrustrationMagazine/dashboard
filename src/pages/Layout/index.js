@@ -9,25 +9,27 @@ import styled from 'styled-components'
 
 function Layout() {
   useEffect(() => {
-    if (process.env.NODE_ENV === 'development' && !document.title.match(/DEV/))
+    if (process.env.NODE_ENV === 'development' && !/DEV/.test(document.title))
       document.title = '[development] ' + document.title
   }, [])
 
   const session = useSession()
+  const devModeOrAuthenticated =
+    session || process.env.NODE_ENV === 'development'
+
+  const Content = (
+    <>
+      <Sidebar />
+      <Main>
+        <Outlet />
+      </Main>
+    </>
+  )
 
   return (
     <>
       <Header />
-      {session || process.env.NODE_ENV === 'development' ? (
-        <>
-          <Sidebar />
-          <Main>
-            <Outlet />
-          </Main>
-        </>
-      ) : (
-        <Authentification />
-      )}
+      {devModeOrAuthenticated ? Content : <Authentification />}
       <ToastContainer />
     </>
   )

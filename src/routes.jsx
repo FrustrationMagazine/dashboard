@@ -27,23 +27,23 @@ const router = createBrowserRouter([
         element: <Income />,
         children: [
           {
-            path: 'total',
+            path: '/revenus/total',
             element: <Total />
           },
           {
-            path: 'subscription',
+            path: '/revenus/subscription',
             element: <Subscription />
           },
           {
-            path: 'donation',
+            path: '/revenus/donation',
             element: <Donation />
           },
           {
-            path: 'sale',
+            path: '/revenus/sale',
             element: <Sale />
           },
           {
-            path: 'donation-campaign-2023',
+            path: '/revenus/donation-campaign-2023',
             element: <DonationCampaign2023 />
           }
         ]
