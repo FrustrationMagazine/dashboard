@@ -1,11 +1,11 @@
 import supabase from '@config/supabaseClient'
 import { useQuery } from '@tanstack/react-query'
 
-export function useIncome() {
+export function useIncome({ type } = { type: 'earned' }) {
   let query = useQuery({
     queryKey: ['income'],
     queryFn: async () => {
-      let { data, error } = await supabase.rpc('total_by_month')
+      let { data, error } = await supabase.rpc(`total_by_month_${type}`)
       if (error) console.error(error)
       return data
     }
@@ -15,7 +15,7 @@ export function useIncome() {
 }
 
 export function useDonation() {
-  let { data} = useQuery({
+  let { data } = useQuery({
     queryKey: ['donation'],
     queryFn: async () => {
       let { data } = await supabase.rpc('donation_info')

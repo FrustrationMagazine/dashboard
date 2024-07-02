@@ -1,12 +1,13 @@
 import { createBrowserRouter } from 'react-router-dom'
 
 import Layout from './pages/Layout/index'
-import Income from '@pages/Income'
-import Total from '@pages/Income/Total'
-import Subscription from '@pages/Income/Subscription'
-import Donation from '@pages/Income/Donation'
-import DonationCampaign2023 from '@pages/Income/DonationCampaign2023'
-import Sale from '@pages/Income/Sale'
+import IncomeEarned from '@pages/IncomeEarned'
+import IncomeCreated from '@pages/IncomeCreated'
+import Total from '@pages/IncomeEarned/Total'
+import Subscription from '@pages/IncomeEarned/Subscription'
+import Donation from '@pages/IncomeEarned/Donation'
+import DonationCampaign2023 from '@pages/IncomeEarned/DonationCampaign2023'
+import Sale from '@pages/IncomeEarned/Sale'
 import Accueil from '@pages/Accueil/index'
 import Audiences from '@pages/Audiences/index'
 import Laboratoire from '@pages/Laboratoire/index'
@@ -23,8 +24,34 @@ const router = createBrowserRouter([
         element: <Accueil />
       },
       {
+        path: '/revenus-gagnes',
+        element: <IncomeEarned />,
+        children: [
+          {
+            path: '/revenus-gagnes/total',
+            element: <Total />
+          },
+          {
+            path: '/revenus-gagnes/subscription',
+            element: <Subscription />
+          },
+          {
+            path: '/revenus-gagnes/donation',
+            element: <Donation />
+          },
+          {
+            path: '/revenus-gagnes/sale',
+            element: <Sale />
+          },
+          {
+            path: '/revenus-gagnes/donation-campaign-2023',
+            element: <DonationCampaign2023 />
+          }
+        ]
+      },
+      {
         path: '/revenus',
-        element: <Income />,
+        element: <IncomeCreated />,
         children: [
           {
             path: '/revenus/total',
@@ -37,14 +64,6 @@ const router = createBrowserRouter([
           {
             path: '/revenus/donation',
             element: <Donation />
-          },
-          {
-            path: '/revenus/sale',
-            element: <Sale />
-          },
-          {
-            path: '/revenus/donation-campaign-2023',
-            element: <DonationCampaign2023 />
           }
         ]
       },

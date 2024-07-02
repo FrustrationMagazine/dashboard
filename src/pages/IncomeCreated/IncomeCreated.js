@@ -4,9 +4,9 @@ import { Tabs } from './components/Tabs'
 import { useLocation, Outlet } from 'react-router-dom'
 import { useIncome } from '@hooks'
 
-const Income = styled(({ className }) => {
+const IncomeCreated = styled(({ className }) => {
   const type = useLocation().pathname.match(/[^/]+$/g)[0]
-  let { data, isLoading, error } = useIncome()
+  let { data, isLoading, error } = useIncome({ type: 'created' })
 
   if (isLoading) {
     return <div>Chargement...</div>
@@ -58,4 +58,4 @@ const Income = styled(({ className }) => {
   }
 `
 
-export default Income
+export default IncomeCreated
